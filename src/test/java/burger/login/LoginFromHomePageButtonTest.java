@@ -1,4 +1,4 @@
-package login;
+package burger.login;
 
 public class LoginFromHomePageButtonTest {
 }
