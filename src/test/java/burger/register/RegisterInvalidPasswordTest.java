@@ -1,9 +1,7 @@
 package burger.register;
 
 
-import burger.BurgersBaseTest;
 import burger.UserTestValues;
-import burger.testvar.AccountPage;
 import burger.testvar.HomePage;
 import burger.testvar.LoginPage;
 import burger.testvar.RegisterPage;
@@ -13,7 +11,6 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 
-import java.util.concurrent.TimeUnit;
 
 //Проверка невозможности зарегистрироваться при пароле меньше 6 символов
 //Проверить классы эквивалентности и пограничные значения:
@@ -29,7 +26,7 @@ import java.util.concurrent.TimeUnit;
 //5. Войти в систему
 
 @RunWith(Parameterized.class)
-public class RegisterInvalidPasswordTest extends BurgersBaseTest {
+public class RegisterInvalidPasswordTest extends RegisterBaseTest {
     private final String name;
     private final String email;
     private final String password;
@@ -55,7 +52,7 @@ public class RegisterInvalidPasswordTest extends BurgersBaseTest {
     @DisplayName("Проверка невозможности создания профиля пользователя при пароле меньше 6 символов")
     @Description("Проверить возможность создания пользователем нового профиль через интерфейс веб-приложения")
     public void registerSuccessTest(){
-        driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
+
         HomePage.clickHeaderAccountButton(driver);
 
         LoginPage.clickLoginPageRegisterButton(driver);

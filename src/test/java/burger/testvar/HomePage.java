@@ -4,6 +4,11 @@ package burger.testvar;
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import static org.junit.Assert.assertTrue;
 
 public class HomePage {
 
@@ -22,6 +27,11 @@ public class HomePage {
     private final static By CONSTRUCTOR_SAUCES_BUTTON = By.xpath(".//span[text()='Соусы']");
     private final static By CONSTRUCTOR_FILLINGS_BUTTON = By.xpath(".//span[text()='Начинки']");
 
+    private final static By CONSTURCTOR_HEADER_GENERIC = By.xpath(".//h2");
+    private final static By COUNSTRUCTOR_BUNS_HEADER = By.xpath(".//h2[text()='Булки']");
+    private final static By COUNSTRUCTOR_SAUCES_HEADER = By.xpath(".//h2[text()='Соусы']");
+    private final static By COUNSTRUCTOR_FILLINGS_HEADER = By.xpath(".//h2[text()='Начинки']/parent::div");
+
     //Кнопка входа в аккаунт на странице Конструктора\главной
     private final static By CONSTRUCTOR_LOGIN_BUTTON = By.xpath(".//button[@class='button_button__33qZ0 button_button_type_primary__1O7Bx button_button_size_large__G21Vg']");
 
@@ -30,7 +40,7 @@ public class HomePage {
     }
 
     @Step("Нажать на кнопку Конструктора в шапке")
-    public static void clickHeaderConstructerButton(WebDriver driver){
+    public static void clickHeaderConstructorButton(WebDriver driver){
         driver.findElement(HEADER_CONSTRUCTOR_BUTTON).click();
     }
 
@@ -68,8 +78,29 @@ public class HomePage {
         driver.findElement(CONSTRUCTOR_LOGIN_BUTTON).click();
     }
 
+    @Step("Проверить отображение раздела \"Булки\" на странице")
+    public static void assertConstructorBunsHeaderVisible(WebDriver driver){
+        WebElement bunsHeader = driver.findElement(COUNSTRUCTOR_BUNS_HEADER);
+        new WebDriverWait(driver, 5)
+                .until(ExpectedConditions.visibilityOf(bunsHeader));
+        assertTrue(bunsHeader.isDisplayed());
+    }
 
+    @Step("Проверить отображение раздела \"Соусы\" на странице")
+    public static void assertConstructorSaucesHeaderVisible(WebDriver driver){
+        WebElement saucesHeader = driver.findElement(COUNSTRUCTOR_SAUCES_HEADER);
+        new WebDriverWait(driver, 5)
+                .until(ExpectedConditions.visibilityOf(saucesHeader));
+        assertTrue(saucesHeader.isDisplayed());
+    }
 
+    @Step("Проверить отображение раздела \"Начинки\" на странице")
+    public static void assertConstructorFillingsHeaderVisible(WebDriver driver){
+        WebElement fillingsHeader = driver.findElement(COUNSTRUCTOR_FILLINGS_HEADER);
+        new WebDriverWait(driver, 5)
+                .until(ExpectedConditions.visibilityOf(fillingsHeader));
+        assertTrue(fillingsHeader.isDisplayed());
+    }
 
 }
 

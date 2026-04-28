@@ -4,14 +4,12 @@ import burger.UserTestValues;
 import burger.testvar.AccountPage;
 import burger.testvar.HomePage;
 import burger.testvar.LoginPage;
-import burger.testvar.RegisterPage;
 import io.qameta.allure.Description;
 import io.qameta.allure.junit4.DisplayName;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 
-import java.util.concurrent.TimeUnit;
 
 //Проверка логина через кнопку в шапке сайта
 //
@@ -20,45 +18,37 @@ import java.util.concurrent.TimeUnit;
 //Шаги:
 //1. Нажать на кнопку входа в аккаунт в шапке профиля ("Личный кабинет")
 //2. Ввести данные в поля Email и Пароль
-//3.
+//3. Войти в личный кабинет
+//4. Сверить показываемый в ЛК Email и введённый
 
 @RunWith(Parameterized.class)
 public class LoginFromHeaderTest extends LoginBaseTest{
 
-    private final String name;
     private final String email;
     private final String password;
 
 
-    public LoginFromHeaderTest(String browserName, String name, String email, String password) {
+    public LoginFromHeaderTest(String browserName, String email, String password) {
         super(browserName);
-        this.name = name;
         this.email = email;
         this.password = password;
     }
 
     @Parameterized.Parameters (name = "{0}")
-    public static Object[][] getRegisterSuccessTestData(){
+    public static Object[][] getLoginFromHeaderTestData(){
         return new Object[][]{
-                {"chrome", UserTestValues.nameHank, UserTestValues.emailHank, UserTestValues.passwordHank7symbols},
-                {"yandex-browser", UserTestValues.nameHank, UserTestValues.emailHank, UserTestValues.passwordHank7symbols}
+                {"chrome", UserTestValues.emailHank, UserTestValues.passwordHank7symbols},
+                {"yandex-browser", UserTestValues.emailHank, UserTestValues.passwordHank7symbols}
         };
     }
 
     @Test
-    @DisplayName("Проверка возможности создания профиля пользователя")
-    @Description("Проверить возможность создания пользователем нового профиль через интерфейс веб-приложения")
-    public void registerSuccessTest(){
-        driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
+    @DisplayName("Проверка возможности логина пользователя через кнопку Личный Кабинет в шапке")
+    @Description("Проверить возможность логина пользователем в систему через кнопку Личный Кабинет в шапке")
+    public void loginFromHeaderTest(){
         HomePage.clickHeaderAccountButton(driver);
 
-        LoginPage.clickLoginPageRegisterButton(driver);
-
-        RegisterPage.fillRegisterPageNameInput(driver, name);
-        RegisterPage.fillRegisterPageEmailInput(driver, email);
-        RegisterPage.fillRegisterPagePasswordInput(driver, password);
-        RegisterPage.clickRegisterPageRegisterButton(driver);
-
+        //Вводим данные существующего пользователя
         LoginPage.clickLoginPageEmailInput(driver);
         LoginPage.fillLoginPageEmailInput(driver, email);
         LoginPage.fillLoginPagePasswordInput(driver, password);

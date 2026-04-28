@@ -1,5 +1,8 @@
-package burger;
+package burger.register;
 
+import burger.UserApi;
+import burger.UserCard;
+import burger.UserTestValues;
 import io.restassured.RestAssured;
 import org.junit.After;
 import org.junit.Before;
@@ -8,13 +11,13 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import burger.testvar.HomePage;
 
-public class BurgersBaseTest {
+public class RegisterBaseTest {
 
     private UserCard userHank6symbols;
     private UserCard userHank7symbols;
     public WebDriver driver;
     private final String browserName;
-    public BurgersBaseTest(String browserName){
+    public RegisterBaseTest(String browserName){
         this.browserName = browserName;
     }
 
@@ -40,8 +43,8 @@ public class BurgersBaseTest {
 
     @After
     public void teardown(){
+        driver.quit();
         UserApi.deleteUserInBurgerTest(userHank6symbols);
         UserApi.deleteUserInBurgerTest(userHank7symbols);
-        driver.quit();
     }
 }

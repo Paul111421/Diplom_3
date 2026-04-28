@@ -11,7 +11,7 @@ public class UserTestValues {
     public static String invalidPasswordHank5symbols = "azino";
 
 
-    public static UserCard validUserHank = new UserCard(nameHank, emailHank, passwordHank7symbols);
+    public static UserCard validUserHank7symbols = new UserCard(nameHank, emailHank, passwordHank7symbols);
     public static UserCard userHankEmailPass6symbols = new UserCard(emailHank, passwordHank6symbols);
     public static UserCard userHankEmailPass7symbols = new UserCard(emailHank, passwordHank7symbols);
 

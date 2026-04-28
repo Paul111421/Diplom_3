@@ -6,7 +6,7 @@ import org.openqa.selenium.WebDriver;
 
 public class RecoverPasswordPage {
 
-    private final static By RECOVER_PASSWORD_PAGE_RETURN_TO_LOGIN_BUTTON = By.xpath(".//a[@href='/burger.login']");
+    private final static By RECOVER_PASSWORD_PAGE_RETURN_TO_LOGIN_BUTTON = By.xpath(".//a[@href='/login']");
 
     @Step("Нажать на кнопку входа через \"Войти\" под кнопкой \"Восстановить\" на странице восстановления пароля")
     public static void clickRecoverPasswordPageReturnToLoginButton(WebDriver driver){
