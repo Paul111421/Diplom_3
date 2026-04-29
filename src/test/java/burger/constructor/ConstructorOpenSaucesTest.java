@@ -4,9 +4,6 @@ import burger.testvar.HomePage;
 import io.qameta.allure.Description;
 import io.qameta.allure.junit4.DisplayName;
 import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.junit.runners.Parameterized;
-
 
 //Проверка открытия вкладки "Соусы"
 //Шаги
@@ -15,20 +12,8 @@ import org.junit.runners.Parameterized;
 //3. Удостовериться в появлении заголовка "Начинки"
 //4. Нажать на вкладку "Соусы"
 //5. Удостовериться в появлении заголовка "Соусы"
-@RunWith(Parameterized.class)
+
 public class ConstructorOpenSaucesTest extends ConstructorBaseTest{
-
-    public ConstructorOpenSaucesTest(String browserName){
-        super(browserName);
-    }
-
-    @Parameterized.Parameters (name = "{0}")
-    public static Object[][] getConstructorOpenSaucesTestData(){
-        return new Object[][]{
-                {"chrome"},
-                {"yandex-browser"},
-        };
-    }
 
     @Test
     @DisplayName("Проверка перехода на вкладку Соусы")

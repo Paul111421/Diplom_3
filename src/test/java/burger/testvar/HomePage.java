@@ -27,10 +27,10 @@ public class HomePage {
     private final static By CONSTRUCTOR_SAUCES_BUTTON = By.xpath(".//span[text()='Соусы']");
     private final static By CONSTRUCTOR_FILLINGS_BUTTON = By.xpath(".//span[text()='Начинки']");
 
-    private final static By CONSTURCTOR_HEADER_GENERIC = By.xpath(".//h2");
-    private final static By COUNSTRUCTOR_BUNS_HEADER = By.xpath(".//h2[text()='Булки']");
-    private final static By COUNSTRUCTOR_SAUCES_HEADER = By.xpath(".//h2[text()='Соусы']");
-    private final static By COUNSTRUCTOR_FILLINGS_HEADER = By.xpath(".//h2[text()='Начинки']/parent::div");
+    private final static By CONSTURCTOR_HEADER_GENERIC = By.xpath(".//div[@class='BurgerIngredients_ingredients__menuContainer__Xu3Mo']/h2");
+    private final static By COUNSTRUCTOR_BUNS_HEADER = By.xpath(".//div[@class='BurgerIngredients_ingredients__menuContainer__Xu3Mo']/h2[text()='Булки']");
+    private final static By COUNSTRUCTOR_SAUCES_HEADER = By.xpath(".//div[@class='BurgerIngredients_ingredients__menuContainer__Xu3Mo']/h2[text()='Соусы']");
+    private final static By COUNSTRUCTOR_FILLINGS_HEADER = By.xpath(".//div[@class='BurgerIngredients_ingredients__menuContainer__Xu3Mo']/h2[text()='Начинки']");
 
     //Кнопка входа в аккаунт на странице Конструктора\главной
     private final static By CONSTRUCTOR_LOGIN_BUTTON = By.xpath(".//button[@class='button_button__33qZ0 button_button_type_primary__1O7Bx button_button_size_large__G21Vg']");

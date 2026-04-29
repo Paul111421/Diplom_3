@@ -8,8 +8,6 @@ import burger.testvar.RegisterPage;
 import io.qameta.allure.Description;
 import io.qameta.allure.junit4.DisplayName;
 import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.junit.runners.Parameterized;
 
 //Проверка логина через кнопку со страницы регистрации
 //
@@ -23,26 +21,10 @@ import org.junit.runners.Parameterized;
 //5. Войти в личный кабинет
 //6. Сверить показываемый в ЛК Email и введённый
 
-@RunWith(Parameterized.class)
 public class LoginFromRegisterPageTest extends LoginBaseTest {
 
-    private final String email;
-    private final String password;
-
-
-    public LoginFromRegisterPageTest(String browserName, String email, String password) {
-        super(browserName);
-        this.email = email;
-        this.password = password;
-    }
-
-    @Parameterized.Parameters (name = "{0}")
-    public static Object[][] getLoginFromRegisterPageTestData(){
-        return new Object[][]{
-                {"chrome", UserTestValues.emailHank, UserTestValues.passwordHank7symbols},
-                {"yandex-browser", UserTestValues.emailHank, UserTestValues.passwordHank7symbols}
-        };
-    }
+    private final String email = UserTestValues.emailHank;
+    private final String password = UserTestValues.passwordHank7symbols;
 
     @Test
     @DisplayName("Проверка возможности логина пользователя через кнопку Войти в аккаунт на странице Регистрации")

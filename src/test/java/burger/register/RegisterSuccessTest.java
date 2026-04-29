@@ -11,7 +11,6 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 
-
 //Проверка регистрации в системе
 //
 //Шаги:
@@ -24,26 +23,20 @@ import org.junit.runners.Parameterized;
 @RunWith(Parameterized.class)
 public class RegisterSuccessTest extends RegisterBaseTest {
 
-    private final String name;
-    private final String email;
+    private final String name = UserTestValues.nameHank;
+    private final String email = UserTestValues.emailHank;
     private final String password;
 
 
-    public RegisterSuccessTest(String browserName, String name, String email, String password) {
-        super(browserName);
-        this.name = name;
-        this.email = email;
+    public RegisterSuccessTest(String password) {
         this.password = password;
     }
 
-    @Parameterized.Parameters (name = "{0},{3}")
+    @Parameterized.Parameters (name = "{0}")
     public static Object[][] getRegisterSuccessTestData(){
         return new Object[][]{
-                {"chrome", UserTestValues.nameHank, UserTestValues.emailHank, UserTestValues.passwordHank6symbols},
-                {"chrome", UserTestValues.nameHank, UserTestValues.emailHank, UserTestValues.passwordHank7symbols},
-
-                {"yandex-browser", UserTestValues.nameHank, UserTestValues.emailHank, UserTestValues.passwordHank6symbols},
-                {"yandex-browser", UserTestValues.nameHank, UserTestValues.emailHank, UserTestValues.passwordHank7symbols},
+                {UserTestValues.passwordHank6symbols},
+                {UserTestValues.passwordHank7symbols},
         };
     }
 

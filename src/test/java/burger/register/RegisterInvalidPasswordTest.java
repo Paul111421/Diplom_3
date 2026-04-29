@@ -1,6 +1,5 @@
 package burger.register;
 
-
 import burger.UserTestValues;
 import burger.testvar.HomePage;
 import burger.testvar.LoginPage;
@@ -8,9 +7,6 @@ import burger.testvar.RegisterPage;
 import io.qameta.allure.Description;
 import io.qameta.allure.junit4.DisplayName;
 import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.junit.runners.Parameterized;
-
 
 //Проверка невозможности зарегистрироваться при пароле меньше 6 символов
 //Проверить классы эквивалентности и пограничные значения:
@@ -25,28 +21,11 @@ import org.junit.runners.Parameterized;
 //4. Нажать на кнопку "Зарегистрироваться"
 //5. Войти в систему
 
-@RunWith(Parameterized.class)
+
 public class RegisterInvalidPasswordTest extends RegisterBaseTest {
-    private final String name;
-    private final String email;
-    private final String password;
-
-
-    public RegisterInvalidPasswordTest(String browserName, String name, String email, String password) {
-        super(browserName);
-        this.name = name;
-        this.email = email;
-        this.password = password;
-    }
-
-    @Parameterized.Parameters (name = "{0},{3}")
-    public static Object[][] getRegisterSuccessTestData(){
-        return new Object[][]{
-                {"chrome", UserTestValues.nameHank, UserTestValues.emailHank, UserTestValues.invalidPasswordHank5symbols},
-
-                {"yandex-browser", UserTestValues.nameHank, UserTestValues.emailHank, UserTestValues.invalidPasswordHank5symbols}
-        };
-    }
+    private final String name = UserTestValues.nameHank;
+    private final String email = UserTestValues.emailHank;
+    private final String password = UserTestValues.invalidPasswordHank5symbols;
 
     @Test
     @DisplayName("Проверка невозможности создания профиля пользователя при пароле меньше 6 символов")
